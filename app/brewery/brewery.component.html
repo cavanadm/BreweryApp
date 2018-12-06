@@ -1,0 +1,24 @@
+
+
+
+<h1>Find Breweries Here!</h1>
+
+<ion-item>
+
+  <ion-label>Search by Name:</ion-label>
+  <ion-input #name placeholder="Enter Name"></ion-input>
+  
+</ion-item>
+<ion-item>
+
+  <ion-label>Search by State:</ion-label>
+  <ion-input #state placeholder="Enter State"></ion-input>
+  
+</ion-item>
+<button ion-button full (click)="checkInput(name,state)">Search</button>
+<div *ngFor="let brewery of breweries | async">
+<p><b>Brewery Name:</b></p> <a (click)="showBreweryPage(brewery)">{{brewery.name}}</a>
+<div [innerHtml]= "getMapUrl(brewery)">
+</div>
+</div>
+
